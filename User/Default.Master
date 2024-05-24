@@ -28,6 +28,17 @@
     <link href="../UserEnd/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../UserEnd/css/responsive.css" rel="stylesheet" />
+      <script>
+          $(function () {
+              var url = window.location.href;
+
+              $("#navbarSupportedContent a").each(function () {
+                  if (url == (this.href)) {
+                      $(this).closest("li").addClass("active");
+                  }
+              });
+          });
+      </script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
   </head>
   <body>
@@ -48,9 +59,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  mx-auto ">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="Index.aspx">Home <span class="sr-only">(current)</span>
-                    </a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Index.aspx">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="Shop.aspx">Shop</a>
@@ -117,8 +127,8 @@
           </div>
         </header>
         <!-- end header section -->
+          <asp:Panel ID="Panel1" runat="server"></asp:Panel>
       </div>
-          <asp:Panel ID="Panel" runat="server"></asp:Panel>
       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
       <!-- footer section -->
       <footer class="footer_section">

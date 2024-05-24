@@ -67,6 +67,93 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminEnd\assets\css\animate.css\css\animate.css" />
+    <Content Include="AdminEnd\assets\css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="AdminEnd\assets\css\jquery.mCustomScrollbar.css" />
+    <Content Include="AdminEnd\assets\css\morris.js\css\morris.css" />
+    <Content Include="AdminEnd\assets\css\style.css" />
+    <Content Include="AdminEnd\assets\icon\icofont\css\icofont.css" />
+    <Content Include="AdminEnd\assets\icon\icofont\fonts\icofont.svg" />
+    <Content Include="AdminEnd\assets\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="AdminEnd\assets\icon\themify-icons\themify-icons.css" />
+    <Content Include="AdminEnd\assets\images\auth\logo-dark.png" />
+    <Content Include="AdminEnd\assets\images\auth\Logo-small-bottom.png" />
+    <Content Include="AdminEnd\assets\images\auth\logo.png" />
+    <Content Include="AdminEnd\assets\images\avatar-1.jpg" />
+    <Content Include="AdminEnd\assets\images\avatar-2.jpg" />
+    <Content Include="AdminEnd\assets\images\avatar-3.jpg" />
+    <Content Include="AdminEnd\assets\images\avatar-4.jpg" />
+    <Content Include="AdminEnd\assets\images\bg.jpg" />
+    <Content Include="AdminEnd\assets\images\favicon.ico" />
+    <Content Include="AdminEnd\assets\images\flags\ENGLISH.jpg" />
+    <Content Include="AdminEnd\assets\images\flags\FRANCE.jpg" />
+    <Content Include="AdminEnd\assets\images\flags\PORTO.jpg" />
+    <Content Include="AdminEnd\assets\images\flags\SPAIN.jpg" />
+    <Content Include="AdminEnd\assets\images\logo.png" />
+    <Content Include="AdminEnd\assets\images\mega-menu\01.jpg" />
+    <Content Include="AdminEnd\assets\images\mega-menu\02.jpg" />
+    <Content Include="AdminEnd\assets\images\mega-menu\03.jpg" />
+    <Content Include="AdminEnd\assets\images\mega-menu\04.jpg" />
+    <Content Include="AdminEnd\assets\images\mega-menu\05.jpg" />
+    <Content Include="AdminEnd\assets\images\mega-menu\06.jpg" />
+    <Content Include="AdminEnd\assets\images\pattern2.jpg" />
+    <Content Include="AdminEnd\assets\images\user.png" />
+    <Content Include="AdminEnd\assets\js\bootstrap-growl.min.js" />
+    <Content Include="AdminEnd\assets\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="AdminEnd\assets\js\classie.js" />
+    <Content Include="AdminEnd\assets\js\classie\classie.js" />
+    <Content Include="AdminEnd\assets\js\common-pages.js" />
+    <Content Include="AdminEnd\assets\js\demo-12.js" />
+    <Content Include="AdminEnd\assets\js\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="AdminEnd\assets\js\jquery-ui\jquery-ui.min.js" />
+    <Content Include="AdminEnd\assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="AdminEnd\assets\js\jquery.mousewheel.min.js" />
+    <Content Include="AdminEnd\assets\js\jquery\jquery.min.js" />
+    <Content Include="AdminEnd\assets\js\modernizr\css-scrollbars.js" />
+    <Content Include="AdminEnd\assets\js\modernizr\modernizr.js" />
+    <Content Include="AdminEnd\assets\js\morris.js\morris.js" />
+    <Content Include="AdminEnd\assets\js\pcoded.min.js" />
+    <Content Include="AdminEnd\assets\js\popper.js\popper.min.js" />
+    <Content Include="AdminEnd\assets\js\raphael\raphael.min.js" />
+    <Content Include="AdminEnd\assets\js\script.js" />
+    <Content Include="AdminEnd\assets\js\script.min.js" />
+    <Content Include="AdminEnd\assets\js\SmoothScroll.js" />
+    <Content Include="AdminEnd\assets\pages\accordion\accordion.js" />
+    <Content Include="AdminEnd\assets\pages\accordion\accordion.min.js" />
+    <Content Include="AdminEnd\assets\pages\chart\morris\morris-custom-chart.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\css\amchart.css" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\css\export.css" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\amcharts.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\custom-amchart.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\export.min.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\images\dragIconRoundBig.svg" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\images\dragIconRoundBigH.svg" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\light.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\amchart\js\serial.js" />
+    <Content Include="AdminEnd\assets\pages\dashboard\custom-dashboard.js" />
+    <Content Include="AdminEnd\assets\pages\google-maps\gmaps.min.js" />
+    <Content Include="AdminEnd\assets\pages\google-maps\jquery.gmaps.js" />
+    <Content Include="AdminEnd\assets\pages\icon-modal.js" />
+    <Content Include="AdminEnd\assets\pages\notification\notification.css" />
+    <Content Include="AdminEnd\assets\pages\notification\notification.js" />
+    <Content Include="AdminEnd\assets\pages\todo\todo.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\amcharts.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\amcharts.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\ammap.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\ammap.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\continentsLow.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\continentsLow.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\gauge.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\gauge.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\light.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\light.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\pie.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\pie.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\serial.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\serial.min.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\worldLow.js" />
+    <Content Include="AdminEnd\assets\pages\widget\amchart\worldLow.min.js" />
+    <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UserEnd\css\bootstrap.css" />
     <Content Include="UserEnd\css\font-awesome.min.css" />
@@ -100,6 +187,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,6 +249,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminEnd\assets\icon\icofont\fonts\icofont.eot" />
+    <Content Include="AdminEnd\assets\icon\icofont\fonts\icofont.ttf" />
+    <Content Include="AdminEnd\assets\icon\icofont\fonts\icofont.woff" />
+    <Content Include="AdminEnd\assets\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="AdminEnd\assets\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="AdminEnd\assets\icon\themify-icons\fonts\themify.woff" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
     <Content Include="UserEnd\css\style.css.map" />
     <Content Include="UserEnd\css\style.scss" />

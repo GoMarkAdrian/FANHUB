@@ -19,7 +19,7 @@ namespace FanHub.User
             {
                 form1.Attributes.Remove("class");
                 Control sliderControl = (Control)Page.LoadControl("sliderController.ascx");
-                Panel.Controls.Add(sliderControl);
+                Panel1.Controls.Add(sliderControl);
             }
         }
     }
