@@ -154,6 +154,7 @@
     <Content Include="AdminEnd\assets\pages\widget\amchart\worldLow.js" />
     <Content Include="AdminEnd\assets\pages\widget\amchart\worldLow.min.js" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="FANHUB.sql" />
     <Content Include="Global.asax" />
     <Content Include="UserEnd\css\bootstrap.css" />
     <Content Include="UserEnd\css\font-awesome.min.css" />
