@@ -31,5 +31,19 @@ namespace FanHub
             }
             return IsValid;
         }
+        public static string GetImageUrl(Object url)
+        {
+            string url_new = "";
+            if (string.IsNullOrEmpty(url.ToString()) || url == DBNull.Value)
+            {
+                url_new = "../Images/Default.png";
+            }
+            else
+            {
+                url_new = string.Format("../{0}", url);
+            }
+            return url_new;
+        }
     }
+
 }

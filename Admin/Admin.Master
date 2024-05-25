@@ -24,7 +24,22 @@
     <link rel="stylesheet" type="text/css" href="../AdminEnd/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="../AdminEnd/assets/css/style.css">
+
     <link rel="stylesheet" type="text/css" href="../AdminEnd/assets/css/jquery.mCustomScrollbar.css">
+    <link href="../AdminEnd/datatables/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../AdminEnd/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../AdminEnd/datatables/css/icon-font.min.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            var url = window.location.href;
+
+            $("#navbarSupportedContent a").each(function () {
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -42,11 +57,11 @@
                             <a class="mobile-menu" id="mobile-collapse" href="#!">
                                 <i class="ti-menu"></i>
                             </a>
-                            <a href="index.html">
-                                <img class="img-fluid" src="../AdminEnd/assets/images/logo.png" alt="" />
+                            <a href="Dashboard.aspx">
+                                <img class="img-fluid" src="../AdminEnd/assets/images/FANHUB_LOGO.jpg" />
                             </a>
                             <a class="mobile-options">
-                                <i class="ti-more"></i>
+                                <i style="color:red;" class="ti-more"></i>
                             </a>
                         </div>
 
@@ -79,7 +94,7 @@
                     <div class="pcoded-wrapper">
                         <nav class="pcoded-navbar">
                             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                            <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-inner-navbar main-menu" id="navbarSupportedContent">
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Overview</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="active">
@@ -92,7 +107,7 @@
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
-                                        <a href="form-elements-component.html">
+                                        <a href="Category.aspx">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories CRUD</span>
                                             <span class="pcoded-mcaret"></span>
@@ -148,30 +163,29 @@
                             </div>
                         </nav>
                         <div class="pcoded-content">
-                            <!-- Danger-color Breadcrumb card start -->
                             <div class="card borderless-card">
                                 <div class="card-block danger-breadcrumb">
                                     <div class="page-header-breadcrumb">
                                         <ul class="breadcrumb-title">
                                             <li class="breadcrumb-item">
-                                                <a href="#!">
+                                                <a href="Dashboard.aspx">
                                                     <i class="icofont icofont-home"></i>
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Breadcrumb</a>
+                                            <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Caption Breadcrumb</a>
+                                            <li class="breadcrumb-item"><a href="#!"><%Response.Write(Session["Show_DataTable"]); %></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Danger-color Breadcrumb card end -->
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 
     <script type="text/javascript" src="../AdminEnd/assets/js/jquery/jquery.min.js"></script>
@@ -206,6 +220,21 @@
             }
         });
     </script>
+    <script src="../AdminEnd/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../AdminEnd/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../AdminEnd/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../AdminEnd/datatables/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="../AdminEnd/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="../AdminEnd/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../AdminEnd/datatables/js/buttons.print.min.js"></script>
+    <script src="../AdminEnd/datatables/js/buttons.html5.min.js"></script>
+    <script src="../AdminEnd/datatables/js/buttons.flash.min.js"></script>
+    <script src="../AdminEnd/datatables/js/pdfmake.min.js"></script>
+    <script src="../AdminEnd/datatables/js/vfs_fonts.js"></script>
+
+    <script src="../AdminEnd/datatables/js/datatable-setting.js"></script>
+
 </body>
 
 </html>
