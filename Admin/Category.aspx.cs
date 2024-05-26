@@ -40,6 +40,7 @@ namespace FanHub.Admin
         // Select * from DB then show
         private void getCategories()
         {
+ 
             con = new SqlConnection(DBConnect.GetConnectionString());
             cmd = new SqlCommand("Category_CRUD", con);
             cmd.Parameters.AddWithValue("@Action", "SELECT");
@@ -187,7 +188,7 @@ namespace FanHub.Admin
                 else
                 {
                     lbl.Text = "In-Active";
-                    lbl.CssClass = "badge badge-Danger";
+                    lbl.CssClass = "badge badge-danger";
                 }
             }
         }
