@@ -1,17 +1,16 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
-
+using System.IO;
 
 namespace FanHub.Admin
 {
-    public partial class Category : System.Web.UI.Page
+    public partial class Products : System.Web.UI.Page
     {
         SqlConnection con;
         SqlCommand cmd;
@@ -22,56 +21,61 @@ namespace FanHub.Admin
         {
             if (!IsPostBack)
             {
-                Session["Show_DataTable"] = "Category";
-                getCategories();
+                Session["Show_DataTable"] = "Products";
+                getProducts();
             }
             labelMessage.Visible = false;
         }
-
-        public void clear()
+        private void getProducts()
         {
-            txtName.Text = string.Empty;
-            cbIsActive.Checked = false;
-            hiddenID.Value = "0";
-            btnAddorUpdate.Text = "Add";
-            imgCategory.ImageUrl = string.Empty;
-        }
 
-        // Select * from DB then show
-        private void getCategories()
-        {
- 
             con = new SqlConnection(DBConnect.GetConnectionString());
-            cmd = new SqlCommand("Category_CRUD", con);
+            cmd = new SqlCommand("Products_CRUD", con);
             cmd.Parameters.AddWithValue("@Action", "SELECT");
             cmd.CommandType = CommandType.StoredProcedure;
             adapter = new SqlDataAdapter(cmd);
             dt = new DataTable();
             adapter.Fill(dt);
-            dataTable_Category.DataSource = dt;
-            dataTable_Category.DataBind();
+            dataTable_Products.DataSource = dt;
+            dataTable_Products.DataBind();
         }
 
-        // Insert
+        public void clear()
+        {
+            txtName.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            txtQuantity.Text = string.Empty;
+            ddlCategories.ClearSelection();
+            cbIsActive.Checked = false;
+            hiddenID.Value = "0";
+            btnAddorUpdate.Text = "Add";
+            imgProduct.ImageUrl = string.Empty;
+        }
+
         protected void btnAddorUpdate_Click(object sender, EventArgs e)
         {
             string action = String.Empty, imagePath = string.Empty, fileExtenstion = string.Empty;
             bool isValidToExecute = false;
-            int categoryID = Convert.ToInt32(hiddenID.Value);
+            int productID = Convert.ToInt32(hiddenID.Value);
             con = new SqlConnection(DBConnect.GetConnectionString());
-            cmd = new SqlCommand("Category_CRUD", con);
-            cmd.Parameters.AddWithValue("@Action", categoryID == 0 ? "INSERT" : "UPDATE");
-            cmd.Parameters.AddWithValue("@CategoryID", categoryID);
+            cmd = new SqlCommand("Products_CRUD", con);
+            cmd.Parameters.AddWithValue("@Action", productID == 0 ? "INSERT" : "UPDATE");
+            cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
+            cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
+            cmd.Parameters.AddWithValue("@Price", txtPrice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Quantity", txtQuantity.Text.Trim());
+            cmd.Parameters.AddWithValue("@CategoryID", ddlCategories.SelectedValue);
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
-            if (fuCategoryImage.HasFile)
+            if (fuProductImage.HasFile)
             {
-                if (util.IsValidExtension(fuCategoryImage.FileName))
+                if (util.IsValidExtension(fuProductImage.FileName))
                 {
                     Guid obj = Guid.NewGuid();
-                    fileExtenstion = Path.GetExtension(fuCategoryImage.FileName);
-                    imagePath = "Images/Category/" + obj.ToString() + fileExtenstion;
-                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + obj.ToString() + fileExtenstion);
+                    fileExtenstion = Path.GetExtension(fuProductImage.FileName);
+                    imagePath = "Images/Products/" + obj.ToString() + fileExtenstion;
+                    fuProductImage.PostedFile.SaveAs(Server.MapPath("~/Images/Products/") + obj.ToString() + fileExtenstion);
                     cmd.Parameters.AddWithValue("@ImageURL", imagePath);
                     isValidToExecute = true;
                 }
@@ -94,11 +98,11 @@ namespace FanHub.Admin
                 {
                     con.Open();
                     cmd.ExecuteNonQuery();
-                    action = categoryID == 0 ? "inserted" : "updated";
+                    action = productID == 0 ? "inserted" : "updated";
                     labelMessage.Visible = true;
-                    labelMessage.Text = "Category " + action + " Sucessfully";
+                    labelMessage.Text = "Product " + action + " Sucessfully";
                     labelMessage.CssClass = "alert alert-success";
-                    getCategories();
+                    getProducts();
                     clear();
                 }
                 catch (Exception ex)
@@ -115,48 +119,52 @@ namespace FanHub.Admin
             }
         }
 
-        protected void dataTable_Category_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void dataTable_Products_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            //CONNECT TO Database
             con = new SqlConnection(DBConnect.GetConnectionString());
             labelMessage.Visible = false;
             if (e.CommandName == "Edit")
             {
-                cmd = new SqlCommand("Category_CRUD", con);
+                //CONNECT TO Database
+                cmd = new SqlCommand("Products_CRUD", con);
                 // Get GETBYID Procedure in DB
                 cmd.Parameters.AddWithValue("@Action", "GETBYID");
-                cmd.Parameters.AddWithValue("@CategoryID", e.CommandArgument);
+                cmd.Parameters.AddWithValue("@ProductID", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
                 adapter = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 adapter.Fill(dt);
                 // FILL UP TEXT BOXES
                 txtName.Text = dt.Rows[0]["Name"].ToString();
+                txtDescription.Text = dt.Rows[0]["Description"].ToString();
+                txtPrice.Text = dt.Rows[0]["Price"].ToString();
+                txtQuantity.Text = dt.Rows[0]["Quantity"].ToString();
+                ddlCategories.SelectedValue = dt.Rows[0]["CategoryID"].ToString();
                 cbIsActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"]);
-                imgCategory.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageURL"].ToString()) ? "../Images/Default.png" : "../" + dt.Rows[0]["ImageURL"].ToString();
-                imgCategory.Height = 200;
-                imgCategory.Width = 200;
-                hiddenID.Value = dt.Rows[0]["CategoryID"].ToString();
+                imgProduct.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageURL"].ToString()) ? "../Images/Default.png" : "../" + dt.Rows[0]["ImageURL"].ToString();
+                imgProduct.Height = 200;
+                imgProduct.Width = 200;
+                hiddenID.Value = dt.Rows[0]["ProductID"].ToString();
                 // LINK EDIT BUTTON
                 btnAddorUpdate.Text = "Update";
-                LinkButton btn = e.Item.FindControl("CategoryEdit") as LinkButton;
+                LinkButton btn = e.Item.FindControl("ProductsEdit") as LinkButton;
                 btn.CssClass = "badge badge-warning";
             }
             else if (e.CommandName == "Delete")
             {
-                cmd = new SqlCommand("Category_CRUD", con);
+                cmd = new SqlCommand("Products_CRUD", con);
                 cmd.Parameters.AddWithValue("@Action", "DELETE");
-                cmd.Parameters.AddWithValue("@CategoryID", e.CommandArgument);
+                cmd.Parameters.AddWithValue("@ProductID", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
                     con.Open();
                     cmd.ExecuteNonQuery();
                     labelMessage.Visible = true;
-                    labelMessage.Text = "Category deleted successfully";
+                    labelMessage.Text = "Product deleted successfully";
                     labelMessage.CssClass = "alert alert-danger";
                     // refresh table without the deleted file
-                    getCategories();
+                    getProducts();
                 }
                 catch (Exception ex)
                 {
@@ -172,25 +180,32 @@ namespace FanHub.Admin
             }
         }
 
-        protected void dataTable_Category_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void dataTable_Products_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 // FIND STRING lblIsActive
-                Label lbl = e.Item.FindControl("lblIsActive") as Label;
-                if (lbl.Text == "True")
+                Label lblActive = e.Item.FindControl("lblIsActive") as Label;
+                Label lblQuantity = e.Item.FindControl("lblQuantity") as Label;
+                if (lblActive.Text == "True")
                 {
-                    lbl.Text = "Active";
-                    lbl.CssClass = "badge badge-success";
+                    lblActive.Text = "Active";
+                    lblActive.CssClass = "badge badge-success";
                 }
                 else
                 {
-                    lbl.Text = "In-Active";
-                    lbl.CssClass = "badge badge-danger";
+                    lblActive.Text = "In-Active";
+                    lblActive.CssClass = "badge badge-danger";
                 }
+
+                if (Convert.ToInt32(lblQuantity.Text) <= 5)
+                {
+                    lblQuantity.CssClass = "badge badge-danger";
+                    lblQuantity.ToolTip = "Low Stocks";
+                }
+
             }
         }
-
         protected void btnClear_Click(object sender, EventArgs e)
         {
             clear();

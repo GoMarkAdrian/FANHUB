@@ -40,14 +40,16 @@
                                     <div class="row">
                                         <div class="col-sm-6 col-md-4 col-lg-4">
                                             <h4 class="sub-title">Category</h4>
-
                                             <div class="form-group">
-                                                <label>Category Name</label>
-                                                <div>
-                                                    <!-- TEXT NAME -->
-                                                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Enter Category Name" required></asp:TextBox>
-                                                    <asp:HiddenField ID="hiddenID" runat="server" Value="0" />
+                                                <div class="form-group">
+                                                    <label>Category Name</label>
+                                                    <div>
+                                                        <!-- Category NAME -->
+                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Enter Category Name" required></asp:TextBox>
+                                                        <asp:HiddenField ID="hiddenID" runat="server" Value="0" />
+                                                    </div>
                                                 </div>
+                                                <!-- Category Image -->
                                                 <div class="form-group">
                                                     <label>Category Image</label>
                                                     <div>
@@ -57,7 +59,7 @@
                                                 <div class="form-check pl-4">
                                                     <div>
                                                         <!-- IS ACTIVE -->
-                                                        <asp:CheckBox ID="cbIsActive" runat="server" Text="Is Active" CssClass="form-check-input" />
+                                                        <asp:CheckBox ID="cbIsActive" runat="server" Text="&nbsp; Is Active" CssClass="form-check-input" />
                                                     </div>
                                                 </div>
 
@@ -67,7 +69,7 @@
                                                         <asp:Button ID="btnAddorUpdate" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAddorUpdate_Click" />
                                                         &nbsp;
                                                         <!-- CLEAR BUTTON -->
-                                                        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-primary" CausesValidation="false" />
+                                                        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-primary" CausesValidation="false" OnClick="btnClear_Click" />
                                                     </div>
                                                 </div>
                                                 <div>
