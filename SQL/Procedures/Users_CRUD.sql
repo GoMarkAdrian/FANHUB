@@ -62,7 +62,7 @@ BEGIN
 	-- SELECT FOR ADMIN
 	IF(@Action = 'SELECT4ADMIN')
 		BEGIN
-			SELECT ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS [SrNo], UserID, Name, Username, Email, CreatedDate FROM Users
+			SELECT ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS [ID], UserID, Name, Username, Email, CreatedDate FROM Users
 		END
 
 	--DELETE FOR ADMIN
