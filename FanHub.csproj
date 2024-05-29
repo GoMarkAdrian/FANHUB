@@ -183,6 +183,7 @@
     <Content Include="SQL\FANHUB.sql" />
     <Content Include="Global.asax" />
     <Content Include="SQL\Procedures\Products_CRUD.sql" />
+    <Content Include="SQL\Procedures\Users_CRUD.sql" />
     <Content Include="UserEnd\css\bootstrap.css" />
     <Content Include="UserEnd\css\font-awesome.min.css" />
     <Content Include="UserEnd\css\responsive.css" />
@@ -210,6 +211,7 @@
     <Content Include="User\About.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Index.aspx" />
+    <Content Include="User\Registration.aspx" />
     <Content Include="User\Shop.aspx" />
     <Content Include="User\sliderController.ascx" />
     <Content Include="Web.config" />
@@ -242,6 +244,13 @@
     </Compile>
     <Compile Include="Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,6 +330,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\Category\" />
     <Folder Include="Images\Products\" />
+    <Folder Include="Images\UserImages\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
