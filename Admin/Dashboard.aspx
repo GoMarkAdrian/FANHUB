@@ -3,5 +3,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <script>alert("WELCOME TO FANHUB ADMIN")</script>
-    <h1>test</h1>
+    <h1>Admin Page</h1>
 </asp:Content>

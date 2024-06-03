@@ -21,6 +21,27 @@ namespace FanHub.User
                 Control sliderControl = (Control)Page.LoadControl("sliderController.ascx");
                 Panel1.Controls.Add(sliderControl);
             }
+            if (Session["userID"] != null)
+            {
+                loginOrlogout.Text = "Logout";
+            }
+            else
+            {
+                loginOrlogout.Text = "Login";
+            }
+        }
+
+        protected void loginOrlogout_Click(object sender, EventArgs e)
+        {
+            if (Session["userID"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Session.Abandon();
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

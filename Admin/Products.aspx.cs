@@ -22,7 +22,14 @@ namespace FanHub.Admin
             if (!IsPostBack)
             {
                 Session["Show_DataTable"] = "Products";
-                getProducts();
+                if (Session["admin"] == null)
+                {
+                    Response.Redirect("../Users/Login.aspx");
+                }
+                else
+                {
+                    getProducts();
+                }
             }
             labelMessage.Visible = false;
         }

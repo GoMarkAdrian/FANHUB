@@ -71,3 +71,7 @@ CREATE TABLE Orders(
 	PaymentID INT FOREIGN KEY REFERENCES Payment(PaymentID) ON DELETE CASCADE NULL, --FK
 	OrderDate DATETIME NULL,
 )
+
+USE FANHUB
+
+INSERT INTO dbo.Users(Name,Username,Mobile,Email,Address,PostCode,Password,ImageURL,CreatedDate) VALUES ('Admin','Admin',00000000000,'Admin@Fanhub.com','ADMIN ADDRESS','0000','Admin','../Images/UserImages/admin.png',GETDATE())

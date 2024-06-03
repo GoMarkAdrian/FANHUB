@@ -23,7 +23,14 @@ namespace FanHub.Admin
             if (!IsPostBack)
             {
                 Session["Show_DataTable"] = "Category";
-                getCategories();
+                if (Session["admin"] == null)
+                {
+                    Response.Redirect("../Users/Login.aspx");
+                }
+                else
+                {
+                    getCategories();
+                }
             }
             labelMessage.Visible = false;
         }

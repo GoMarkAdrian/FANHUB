@@ -74,15 +74,13 @@
                             <ul class="nav-right">
                                 <li class="user-profile header-notification">
                                     <a href="#!">
-                                        <img src="../AdminEnd/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <img src="../Images/UserImages/admin.png" class="img-radius" alt="User-Profile-Image">
+                                        <span>Admin</span>
                                         <i class="ti-angle-down"></i>
                                     </a>
                                     <ul class="show-notification profile-notification">
                                         <li>
-                                            <a href="auth-normal-sign-in.html">
-                                                <i class="ti-layout-sidebar-left"></i>Logout
-                                            </a>
+                                            <asp:LinkButton ID="logout" runat="server" CausesValidation="false" OnClick="logout_Click"><i class="ti-layout-sidebar-left"></i>Logout</asp:LinkButton>
                                         </li>
                                     </ul>
                                 </li>

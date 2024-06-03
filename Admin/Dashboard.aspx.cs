@@ -14,6 +14,10 @@ namespace FanHub.Admin
             if (!IsPostBack)
             {
                 Session["Show_DataTable"] = "";
+                if (Session["admin"] == null)
+                {
+                    Response.Redirect("../User/Login.aspx");
+                }
             }
         }
     }

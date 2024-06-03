@@ -180,6 +180,8 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\Users.aspx" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\UserImages\admin.png" />
     <Content Include="SQL\Procedures\Category_CRUD.sql" />
     <Content Include="SQL\FANHUB.sql" />
     <Content Include="Global.asax" />
@@ -212,6 +214,7 @@
     <Content Include="User\About.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Index.aspx" />
+    <Content Include="User\Login.aspx" />
     <Content Include="User\Registration.aspx" />
     <Content Include="User\Shop.aspx" />
     <Content Include="User\sliderController.ascx" />
@@ -252,6 +255,13 @@
     </Compile>
     <Compile Include="Admin\Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -338,7 +348,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\Category\" />
     <Folder Include="Images\Products\" />
-    <Folder Include="Images\UserImages\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
