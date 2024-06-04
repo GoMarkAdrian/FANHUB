@@ -43,5 +43,19 @@ namespace FanHub.User
                 Response.Redirect("Login.aspx");
             }
         }
+
+        protected void RegisterOrProfile_Click(object sender, EventArgs e)
+        {
+            if (Session["userID"] != null)
+            {
+                RegisterOrProfile.ToolTip = "User Profile";
+                Response.Redirect("Profile.aspx");
+            }
+            else
+            {
+                RegisterOrProfile.ToolTip = "User Registration";
+                Response.Redirect("Registration.aspx");
+            }
+        }
     }
 }
