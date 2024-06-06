@@ -210,7 +210,6 @@
     <Content Include="UserEnd\js\bootstrap.js" />
     <Content Include="UserEnd\js\custom.js" />
     <Content Include="UserEnd\js\jquery-3.4.1.min.js" />
-    <Content Include="UserEnd\Y2456831-01.jpg" />
     <Content Include="User\About.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Index.aspx" />

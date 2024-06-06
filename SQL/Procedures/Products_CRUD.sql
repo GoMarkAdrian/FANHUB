@@ -27,6 +27,12 @@ BEGIN
 		SELECT p.*, c.Name AS CategoryName FROM dbo.Products p INNER JOIN dbo.Categories c ON c.CategoryID = p.CategoryID ORDER BY p.CreatedDate DESC
 	END
 
+	-- GET ALL ACTIVE PRODUCTS
+	IF(@Action = 'ACTIVEPROD')
+	BEGIN
+		SELECT p.*, c.Name AS CategoryName FROM dbo.Products p INNER JOIN dbo.Categories c ON c.CategoryID = p.CategoryID WHERE p.IsActive =1
+	END
+
 	-- INSERT
 	IF(@Action = 'INSERT')
 	BEGIN

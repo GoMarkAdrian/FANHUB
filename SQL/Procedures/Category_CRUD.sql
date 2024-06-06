@@ -23,6 +23,12 @@ BEGIN
 		SELECT * FROM dbo.Categories ORDER BY CreatedDate DESC
 	END
 
+	-- GET ALL ACTIVE CATEGORY
+ 	IF(@Action = 'ACTIVECAT')
+	BEGIN
+		SELECT * FROM dbo.Categories WHERE IsActive = 1
+	END
+
 	-- INSERT CATEGORY
 	IF(@Action = 'INSERT')
 	BEGIN

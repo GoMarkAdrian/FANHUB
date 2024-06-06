@@ -25,7 +25,7 @@ namespace FanHub.Admin
                 Session["Show_DataTable"] = "Users";
                 if (Session["admin"] == null)
                 {
-                    Response.Redirect("../Users/Login.aspx");
+                    Response.Redirect("../User/Login.aspx");
                 }
                 else
                 {
