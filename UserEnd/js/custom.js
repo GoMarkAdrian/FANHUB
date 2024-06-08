@@ -9,7 +9,7 @@ getYear();
 
 
 // isotope js
-/*$(window).on('load', function () {
+$(window).on('load', function () {
     $('.filters_menu li').click(function () {
         $('.filters_menu li').removeClass('active');
         $(this).addClass('active');
@@ -58,10 +58,11 @@ getYear();
         });
     });
 });
-*/
+
+// IF EVERYTHING BREAK PLEASE UN COMMENT THIS
 
 // isotope js
-$(window).on('load', function () {
+/*$(window).on('load', function () {
     $('.filters_menu li').click(function () {
         $('.filters_menu li').removeClass('active');
         $(this).addClass('active');
@@ -80,6 +81,9 @@ $(window).on('load', function () {
         }
     })
 });
+
+*/
+// UNTIL HERE AND COMMENT THE TOP ISOTOPE
 
 
 // nice select
