@@ -218,7 +218,6 @@
     <Content Include="User\Registration.aspx" />
     <Content Include="User\Shop.aspx" />
     <Content Include="User\sliderController.ascx" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -344,13 +343,7 @@
     <Content Include="UserEnd\fonts\fontawesome-webfont.woff" />
     <Content Include="UserEnd\fonts\fontawesome-webfont.woff2" />
     <Content Include="User\Default.Master" />
-    <None Include="Web.config.bak" />
-    <None Include="Web.config.Debug.bak">
-      <DependentUpon>Web.config.bak</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.bak">
-      <DependentUpon>Web.config.bak</DependentUpon>
-    </None>
+    <None Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
