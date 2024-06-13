@@ -182,6 +182,7 @@
     <Content Include="Admin\Users.aspx" />
     <Content Include="Images\login.png" />
     <Content Include="Images\UserImages\admin.png" />
+    <Content Include="SQL\Procedures\Cart_CRUD.sql" />
     <Content Include="SQL\Procedures\Category_CRUD.sql" />
     <Content Include="SQL\FANHUB.sql" />
     <Content Include="Global.asax" />
