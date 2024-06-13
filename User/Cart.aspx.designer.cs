@@ -11,7 +11,7 @@ namespace FanHub.User
 {
 
 
-    public partial class Shop
+    public partial class Cart
     {
 
         /// <summary>
@@ -24,21 +24,12 @@ namespace FanHub.User
         protected global::System.Web.UI.WebControls.Label labelMsg;
 
         /// <summary>
-        /// Categories control.
+        /// CartItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Categories;
-
-        /// <summary>
-        /// Products control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Products;
+        protected global::System.Web.UI.WebControls.Repeater CartItem;
     }
 }

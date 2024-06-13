@@ -7,8 +7,10 @@
     <section class="food_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>Our Shop
-                </h2>
+                <div class="align-self-end">
+                    <asp:Label ID="labelMsg" runat="server" Visible="false"></asp:Label>
+                </div>
+                <h2>Our Shop</h2>
             </div>
 
             <ul class="filters_menu">
@@ -22,7 +24,7 @@
 
             <div class="filters-content">
                 <div class="row grid">
-                    <asp:Repeater ID="Products" runat="server">
+                    <asp:Repeater ID="Products" runat="server" OnItemCommand="Products_ItemCommand">
                         <ItemTemplate>
                             <div class="col-sm-6 col-lg-4 all <%# Regex.Replace(Eval("CategoryName").ToString().ToLower(), @"\s+","") %>">
                                 <div class="box">
