@@ -24,10 +24,13 @@ namespace FanHub.User
             if (Session["userID"] != null)
             {
                 loginOrlogout.Text = "Logout";
+                util util = new util();
+                Session["cartCount"] = util.cartCount(Convert.ToInt32(Session["UserID"])).ToString();
             }
             else
             {
                 loginOrlogout.Text = "Login";
+                Session["cartCount"] = "0";
             }
         }
 

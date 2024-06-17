@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using FanHub.Admin;
 
 namespace FanHub
 {
@@ -22,6 +23,7 @@ namespace FanHub
     {
         SqlConnection con;
         SqlCommand cmd;
+        SqlDataAdapter sda;
         public static bool IsValidExtension(string FileName)
         {
             bool IsValid = false;
@@ -68,6 +70,7 @@ namespace FanHub
             }
             catch (Exception ex)
             {
+                isUpdated = false;
                 System.Web.HttpContext.Current.Response.Write("<script>alert('Error - " + ex.Message + " '<script>");
             }
             finally
@@ -76,7 +79,18 @@ namespace FanHub
             }
             return isUpdated;
         }
-
+        public int cartCount(int UserID)
+        {
+            con = new SqlConnection(DBConnect.GetConnectionString());
+            cmd = new SqlCommand("Cart_CRUD", con);
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
+            cmd.Parameters.AddWithValue("@UserID", UserID);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt.Rows.Count;
+        }
     }
 
 }
