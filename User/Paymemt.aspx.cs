@@ -26,7 +26,7 @@ namespace FanHub.User
 		{
             if (!IsPostBack)
             {
-                if (Session["useriD"] == null)
+                if (Session["UserID"] == null)
                 {
                     Response.Redirect("Login.aspx");
                 }
@@ -41,7 +41,7 @@ namespace FanHub.User
             _cvv = txtCvv.Text.Trim();
             _adresss = txtAddress.Text.Trim();
             _paymentMode = "card";
-            if(Session["useriD"] != null)
+            if(Session["UserID"] != null)
             {
                 OrderPayment(_name, _cardNo, _expiryDate, _cvv, _adresss, _paymentMode);
             }
@@ -55,7 +55,7 @@ namespace FanHub.User
         {
             _adresss = txtCODAddress.Text.Trim();
             _paymentMode = "cod";
-            if (Session["useriD"] != null)
+            if (Session["UserID"] != null)
             {
                 OrderPayment(_name, _cardNo, _expiryDate, _cvv, _adresss, _paymentMode);
             }
@@ -67,7 +67,7 @@ namespace FanHub.User
 
         void OrderPayment(string name, string cardNo, string expiryDate, string cvv, string address, string paymentMode)
         {
-            int paymentId; int productID; int quantity;
+            int paymentId; int productId; int quantity;
             dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[7]
             {
@@ -92,7 +92,7 @@ namespace FanHub.User
             cmd.Parameters.AddWithValue("@Address", address);
             cmd.Parameters.AddWithValue("@PaymentMode", paymentMode);
             cmd.Parameters.Add("@InsertedId", SqlDbType.Int);
-            cmd.Parameters["InsertedId"].Direction = ParameterDirection.Output;
+            cmd.Parameters["@InsertedId"].Direction = ParameterDirection.Output;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -106,16 +106,16 @@ namespace FanHub.User
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    productID = (int)dr["ProductID"];
+                    productId = (int)dr["ProductID"];
                     quantity = (int)dr["Quantity"];
                     //pang update sa DB ng quantity
-                    UpdateQuantity(productID, quantity, transaction, con);
+                    UpdateQuantity(productId, quantity, transaction, con);
                     //pang update sa DB ng quantity end
 
                     //delete cart item
-                    DeleteCartItem(productID, transaction, con);
+                    DeleteCartItem(productId, transaction, con);
                     //delete cart item end
-                    dt.Rows.Add(util.GetUniqueId(), productID, quantity, (int)Session["UserID"], "Pending", 
+                    dt.Rows.Add(util.GetUniqueId(), productId, quantity, (int)Session["UserID"], "Pending", 
                         paymentId, Convert.ToDateTime(DateTime.Now));
                 }
                 dr.Close();
@@ -158,7 +158,7 @@ namespace FanHub.User
         void UpdateQuantity(int _productId, int _quantity, SqlTransaction sqlTransaction, SqlConnection sqlConnection)
         {
             int dbQuantity;
-            cmd = new SqlCommand("Product_CRUD", sqlConnection, sqlTransaction);
+            cmd = new SqlCommand("Products_CRUD", sqlConnection, sqlTransaction);
             cmd.Parameters.AddWithValue("@Action", "GETBYID");
             cmd.Parameters.AddWithValue("@ProductID", _productId);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -171,7 +171,7 @@ namespace FanHub.User
                     if (dbQuantity > _quantity && dbQuantity > 2)
                     {
                         dbQuantity = dbQuantity - _quantity;
-                        cmd = new SqlCommand("Product_CRUD", sqlConnection, sqlTransaction);
+                        cmd = new SqlCommand("Products_CRUD", sqlConnection, sqlTransaction);
                         cmd.Parameters.AddWithValue("@Action", "QTYUPDATE");
                         cmd.Parameters.AddWithValue("@Quantity", dbQuantity);
                         cmd.Parameters.AddWithValue("@ProductID", _productId);
@@ -191,7 +191,7 @@ namespace FanHub.User
         void DeleteCartItem(int _productId, SqlTransaction sqlTransaction, SqlConnection sqlConnection)
         {
             cmd = new SqlCommand("Cart_CRUD", sqlConnection, sqlTransaction);
-            cmd.Parameters.AddWithValue("@Action", "QTYUPDATE");
+            cmd.Parameters.AddWithValue("@Action", "DELETE");
             cmd.Parameters.AddWithValue("@ProductID", _productId);
             cmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
             cmd.CommandType = CommandType.StoredProcedure;

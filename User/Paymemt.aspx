@@ -1,73 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/Default.Master" AutoEventWireup="true" CodeBehind="Paymemt.aspx.cs" Inherits="FanHub.User.Paymemt" %>
 
-    <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<style>
-    body{
-        background: #f5f5f5
-
-    }
-    .rounded{
-        border-radius: 1rem
-
-    }
-    .nav-pills .nav-link{
-        color: #555
-
-    }
-    .nav-pills .nav-link.active{
-        color: white
-
-    }
-    /*input[type="radio"]{
-        margin-right: 5px
-
-    }*/
-    .bold{
-        font-weight:bold
-
-    }
-    .card{
-        padding: 40px 50px;
-        border-radius:20px;
-        border:none;
-        box-shadow: 1px 5px 10px 1px rgba(0,0,0,0.1)
-    }
-</style>
-<script>
-    /*message na mawawala*/
-    window.onload = function () {
-        var seconds = 5;
-        setTimeout(function () {
-            document.getElementById("<%=lblMsg.ClientID%>").style.display = "none";
-        }, seconds * 1000);
-    };
-    $(function () {
-        $('[data-toggle="tooltip" ]').tooltip()
-    })
-</script>
-        <%--para hindi maka pindot ng back button after payment--%>
-        <script type="text/javascript">
-            function DisableBackButton() {
-                window.history.forward()
-            }
-            DisableBackButton();
-            window.onload = DisableBackButton;
-            window.onunload = function () { void(0) }
-        </script>
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="book_section" style="background-image:url('../Images/payment-bg.png'); width:100%; height:100%; background-repeat:no-repeat;
-    background-size:auto; background-attachment:fixed; background-position:left;">
-
-    </section>
-
-<div class="container py-5">
-    <!-- For demo purpose -->
-    <div class="row mb-4">
-        <div class="col-lg-8 mx-auto text-center">Payment design code:
-
-<asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .rounded {
             border-radius: 1rem
@@ -117,7 +50,7 @@
         window.onunload = function () { void (0) }
     </script>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <section class="book_section" style="background-image: url('../Images/payment-bg.png'); width: 100%; height: 100%; background-repeat: no-repeat; 
         background-size: auto; background-attachment: fixed; background-position: left;">
