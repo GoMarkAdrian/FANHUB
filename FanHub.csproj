@@ -182,6 +182,9 @@
     <Content Include="Admin\Users.aspx" />
     <Content Include="Images\login.png" />
     <Content Include="Images\UserImages\admin.png" />
+    <Content Include="SQL\Procedures\Type.sql" />
+    <Content Include="SQL\Procedures\Save_Payment.sql" />
+    <Content Include="SQL\Procedures\Save_Orders.sql" />
     <Content Include="SQL\Procedures\Cart_CRUD.sql" />
     <Content Include="SQL\Procedures\Category_CRUD.sql" />
     <Content Include="SQL\FANHUB.sql" />
