@@ -182,6 +182,7 @@
     <Content Include="Admin\Users.aspx" />
     <Content Include="Images\login.png" />
     <Content Include="Images\UserImages\admin.png" />
+    <Content Include="SQL\Procedures\Cart_CRUD.sql" />
     <Content Include="SQL\Procedures\Category_CRUD.sql" />
     <Content Include="SQL\FANHUB.sql" />
     <Content Include="Global.asax" />
@@ -211,6 +212,7 @@
     <Content Include="UserEnd\js\custom.js" />
     <Content Include="UserEnd\js\jquery-3.4.1.min.js" />
     <Content Include="User\About.aspx" />
+    <Content Include="User\Cart.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Index.aspx" />
     <Content Include="User\Login.aspx" />
@@ -218,7 +220,6 @@
     <Content Include="User\Registration.aspx" />
     <Content Include="User\Shop.aspx" />
     <Content Include="User\sliderController.ascx" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -255,6 +256,13 @@
     </Compile>
     <Compile Include="Admin\Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -344,13 +352,7 @@
     <Content Include="UserEnd\fonts\fontawesome-webfont.woff" />
     <Content Include="UserEnd\fonts\fontawesome-webfont.woff2" />
     <Content Include="User\Default.Master" />
-    <None Include="Web.config.bak" />
-    <None Include="Web.config.Debug.bak">
-      <DependentUpon>Web.config.bak</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.bak">
-      <DependentUpon>Web.config.bak</DependentUpon>
-    </None>
+    <None Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

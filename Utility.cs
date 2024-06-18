@@ -1,8 +1,12 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
+using FanHub.Admin;
 
 namespace FanHub
 {
@@ -17,6 +21,9 @@ namespace FanHub
 
     public class util
     {
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter sda;
         public static bool IsValidExtension(string FileName)
         {
             bool IsValid = false;
@@ -44,6 +51,47 @@ namespace FanHub
             }
             return url_new;
         }
+        
+        public bool updateCartQuantity(int quantity, int productID, int UserID)
+        {
+            bool isUpdated = false;
+            con = new SqlConnection(DBConnect.GetConnectionString());
+            cmd = new SqlCommand("Cart_CRUD", con);
+            cmd.Parameters.AddWithValue("@Action", "UPDATE");
+            cmd.Parameters.AddWithValue("@ProductID", productID);
+            cmd.Parameters.AddWithValue("@Quantity", quantity);
+            cmd.Parameters.AddWithValue("@UserID", UserID);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                isUpdated = true;
+            }
+            catch (Exception ex)
+            {
+                isUpdated = false;
+                System.Web.HttpContext.Current.Response.Write("<script>alert('Error - " + ex.Message + " '<script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return isUpdated;
+        }
+        public int cartCount(int UserID)
+        {
+            con = new SqlConnection(DBConnect.GetConnectionString());
+            cmd = new SqlCommand("Cart_CRUD", con);
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
+            cmd.Parameters.AddWithValue("@UserID", UserID);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt.Rows.Count;
+        }
     }
 
 }
+    
