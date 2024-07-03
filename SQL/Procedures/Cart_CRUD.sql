@@ -1,11 +1,8 @@
-USE [FANHUB]
-GO
-/****** Object:  StoredProcedure [dbo].[Cart_CRUD]    Script Date: 6/13/2024 4:10:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[Cart_CRUD]
+CREATE PROCEDURE Cart_CRUD
 @Action VARCHAR(10),
 @ProductID INT = NULL,
 @Quantity INT = NULL,
