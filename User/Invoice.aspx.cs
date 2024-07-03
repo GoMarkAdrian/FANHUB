@@ -49,22 +49,22 @@ namespace FanHub.User
             double grandTotal = 0;
             con = new SqlConnection(DBConnect.GetConnectionString());
             cmd = new SqlCommand("Invoice", con);
-            cmd.Parameters.AddWithValue("@Action", "INVOICEBYID");
+            cmd.Parameters.AddWithValue("@Action", "INVOICEID");
             cmd.Parameters.AddWithValue("@PaymentID", Convert.ToInt32(Request.QueryString["id"]));
-            cmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
+            cmd.Parameters.AddWithValue("@UserId", Session["UserID"]);
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
             sda.Fill(dt);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 foreach (DataRow drow in dt.Rows)
                 {
-                    grandTotal += Convert.ToDouble(drow["grandTotalPrice"]);
+                    grandTotal += Convert.ToDouble(drow["TotalPrice"]);
                 }
             }
             DataRow dr = dt.NewRow();
-            dr["grandTotalPrice"] = grandTotal;
+            dr["TotalPrice"] = grandTotal;
             dt.Rows.Add(dr);
             return dt;
         }
@@ -73,7 +73,7 @@ namespace FanHub.User
         {
             try
             {
-                string downloadPath = @"C:\order_invoice.pdf";
+                string downloadPath = @"D:\order_invoice.pdf";
                 DataTable dtbl = GetOrderDetails();
                 ExportToPdf(dtbl, downloadPath, "Order Invoice");
 
@@ -114,7 +114,7 @@ namespace FanHub.User
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, Color.GRAY);
             prgAuthor.Alignment = Element.ALIGN_RIGHT;
-            prgAuthor.Add(new Chunk("Order From : Foodie Fast Food", fntAuthor));
+            prgAuthor.Add(new Chunk("Order From : Fanhub", fntAuthor));
             prgAuthor.Add(new Chunk("\nOrder Date : " + dtblTable.Rows[0]["OrderDate"].ToString(), fntAuthor));
             document.Add(prgAuthor);
 

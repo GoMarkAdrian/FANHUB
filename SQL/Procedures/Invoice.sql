@@ -20,7 +20,7 @@ BEGIN
     if @Action = 'INVOICEBYID'
 		begin
 			Select ROW_NUMBER() over(order by (select 1)) as [SrNo], o.OrderNo, p.Name, p.Price, o.Quantity,
-			(p.Price *  o.Quantity) as TotalPrice, o.OrderDate, o.Status from Orders o
+			(p.Price * o.Quantity) as TotalPrice, o.OrderDate, o.Status from Orders o
 			inner join Products p on p.ProductID = o.ProductID
 			where o.PaymentID = @PaymentId and o.UserID = @UserId
 		end
