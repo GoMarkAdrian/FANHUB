@@ -16,7 +16,7 @@
         <div class="'container">
             <asp:Repeater ID="CartItem" runat="server" OnItemCommand="CartItem_ItemCommand" OnItemDataBound="CartItem_ItemDataBound">
                 <HeaderTemplate>
-                    <table class="table">
+                    <table class="table ">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -70,7 +70,7 @@
                     <tr>
                         <td colspan="3"></td>
                         <td class="pl-lg-5">
-                            <b> Grand Total:-</b>
+                            <b> Grand Total: </b>
                         </td>
                         <td>$<%Response.Write(Session["grandTotalPrice"]); %></td>
                         <td></td>

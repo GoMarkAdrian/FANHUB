@@ -178,18 +178,14 @@ namespace FanHub.User
             {
             ListItemType = type;
             }
-            public void InstantiareIn(Control container)
-            {
-            if (ListItemType == ListItemType.Footer)
-            {
-                var footer = new LiteralControl("<tr><td colspan='5'><b>Your Cart is empty.</b><a href='Shop.aspx' class='badge badge-info ml-2'>Continue Shopping</a></td></tr></tbody></table>");
-                container.Controls.Add(footer);
-            }
-            }
-
             public void InstantiateIn(Control container)
             {
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
+                if (ListItemType == ListItemType.Footer)
+                {
+                    var footer = new LiteralControl("<tr><td colspan='5'><b>Your Cart is empty.</b><a href='Shop.aspx' class='badge badge-info ml-2'>Continue Shopping</a></td></tr></tbody></table>");
+                    container.Controls.Add(footer);
+                }
             }
         }
     }
