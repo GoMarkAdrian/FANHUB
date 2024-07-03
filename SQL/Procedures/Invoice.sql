@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[Invoice]
+CREATE PROCEDURE Invoice
 	@Action VARCHAR(10),
 	@PaymentId INT = NULL,
 	@UserId int = NULL,

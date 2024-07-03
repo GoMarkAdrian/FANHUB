@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[Save_Orders] @tblOrders OrderDetails READONLY
+CREATE PROCEDURE Save_Orders @tblOrders OrderDetails READONLY
 AS
 BEGIN
 	SET NOCOUNT ON;

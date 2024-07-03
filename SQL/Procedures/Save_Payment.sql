@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[Save_Payment]
+CREATE PROCEDURE Save_Payment
 	@Name VARCHAR(100) = NULL,
 	@CardNo VARCHAR(50) = NULL,
 	@ExpiryDate VARCHAR(50) = NULL,
