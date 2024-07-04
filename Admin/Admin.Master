@@ -58,7 +58,8 @@
                                 <i class="ti-menu"></i>
                             </a>
                             <a href="Dashboard.aspx">
-                                <img class="img-fluid" src="../AdminEnd/assets/images/FANHUB_LOGO.jpg" />
+                                <%--<img class="img-fluid" src="../AdminEnd/assets/images/FANHUB_LOGO.jpg" />--%>
+                                <h3>Seller Side</h3>
                             </a>
                             <a class="mobile-options">
                                 <i style="color:red;" class="ti-more"></i>
@@ -142,7 +143,7 @@
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="active">
-                                        <a href="">
+                                        <a href="Contact.aspx">
                                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Users Feedback</span>
                                             <span class="pcoded-mcaret"></span>
@@ -151,7 +152,7 @@
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="active">
-                                        <a href="">
+                                        <a href="Report.aspx">
                                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Reports</span>
                                             <span class="pcoded-mcaret"></span>
