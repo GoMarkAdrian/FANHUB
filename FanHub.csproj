@@ -257,8 +257,11 @@
     <Content Include="Images\login.png" />
     <Content Include="Images\UserImages\admin.png" />
     <Content Include="itextsharp.dll" />
+    <Content Include="SQL\Procedures\ContactSp.sql" />
+    <Content Include="SQL\Procedures\Dashboard.sql" />
     <Content Include="SQL\Procedures\Invoice.sql" />
-    <Content Include="SQL\Procedures\Type.sql" />
+    <Content Include="SQL\Procedures\SellingReport.sql" />
+    <Content Include="SQL\Type.sql" />
     <Content Include="SQL\Procedures\Save_Payment.sql" />
     <Content Include="SQL\Procedures\Save_Orders.sql" />
     <Content Include="SQL\Procedures\Cart_CRUD.sql" />
