@@ -123,7 +123,7 @@
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                                <asp:LinkButton ID="loginOrlogout" runat="server" CssClass="btn btn-danger" CausesValidation="false" OnClick="loginOrlogout_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="loginOrlogout" runat="server" CssClass="btn btn-warning" CausesValidation="false" OnClick="loginOrlogout_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </nav>
@@ -139,8 +139,7 @@
                 <div class="row">
                     <div class="col-md-4 footer-col">
                         <div class="footer_contact">
-                            <h4>Contact Us
-                            </h4>
+                            <h4>Contact Us</h4>
                             <div class="contact_link_box">
                                 <a href="">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -193,13 +192,13 @@
                             Everyday
                         </p>
                         <p>
-                            10.00 Am -10.00 Pm
+                            24 Hours
                         </p>
                     </div>
                 </div>
                 <div class="footer-info">
                     <p>
-                        &copy; <span id="displayYear"></span>All Rights Reserved By
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
                     <a href="https://google.com">FanHub</a><br>
                         <br>
                         &copy; <span id=""></span>Distributed By

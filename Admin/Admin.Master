@@ -5,7 +5,7 @@
 <html>
 
 <head runat="server">
-    <title>FANHUB ADMIN</title>
+    <title>FANHUB SUPPLIER</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,7 +30,7 @@
     <link href="../AdminEnd/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="../AdminEnd/datatables/css/icon-font.min.css" rel="stylesheet" />
     <script>
-        $(function () {
+        (function () {
             var url = window.location.href;
 
             $("#navbarSupportedContent a").each(function () {
@@ -59,10 +59,10 @@
                             </a>
                             <a href="Dashboard.aspx">
                                 <%--<img class="img-fluid" src="../AdminEnd/assets/images/FANHUB_LOGO.jpg" />--%>
-                                <h3>Seller Side</h3>
+                                <h3>Supplier Side</h3>
                             </a>
                             <a class="mobile-options">
-                                <i style="color:red;" class="ti-more"></i>
+                                <i style="color:white;" class="ti-more"></i>
                             </a>
                         </div>
 
@@ -108,7 +108,7 @@
                                     <li>
                                         <a href="Category.aspx">
                                             <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories CRUD</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
@@ -116,16 +116,16 @@
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li>
                                         <a href="Products.aspx">
-                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Products CRUD</span>
+                                            <span class="pcoded-micon"><i class="ti-package"></i><b>FC</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Products</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu ">
+                                    <li>
                                         <a href="OrderStatus.aspx">
-                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                            <span class="pcoded-micon"><i class="ti-truck"></i><b>M</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Update Delivery Status</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
@@ -133,27 +133,27 @@
                                 </ul>
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Users Overview</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
+                                    <li>
                                         <a href="Users.aspx">
-                                            <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                            <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Users</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
+                                    <li>
                                         <a href="Contact.aspx">
-                                            <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                            <span class="pcoded-micon"><i class="ti-comment-alt"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Users Feedback</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
+                                    <li>
                                         <a href="Report.aspx">
-                                            <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                            <span class="pcoded-micon"><i class="ti-announcement"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Reports</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
@@ -163,7 +163,7 @@
                         </nav>
                         <div class="pcoded-content">
                             <div class="card borderless-card">
-                                <div class="card-block danger-breadcrumb">
+                                <div class="card-block warning-breadcrumb">
                                     <div class="page-header-breadcrumb">
                                         <ul class="breadcrumb-title">
                                             <li class="breadcrumb-item">
