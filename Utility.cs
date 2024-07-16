@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using FanHub.Admin;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace FanHub
 {
@@ -98,6 +99,39 @@ namespace FanHub
             string uniqueId = guid.ToString();
             return uniqueId;
 
+        }
+    }
+
+    public class DashboardCount
+    {
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader sdr;
+
+        public int Count(string tablename)
+        {
+            int count = 0;
+            con = new SqlConnection (DBConnect.GetConnectionString());
+            cmd = new SqlCommand("Dashboard", con);
+            cmd.Parameters.AddWithValue ("@Action", tablename);
+            cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            //sda = new SqlDataAdapter(cmd);
+            sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                if (sdr[0] == DBNull.Value)
+                {
+                    count = 0;
+                }
+                else
+                {
+                    count = Convert.ToInt32(sdr[0]);
+                }
+            }
+            sdr.Close();
+            con.Close();
+            return count;
         }
     }
 

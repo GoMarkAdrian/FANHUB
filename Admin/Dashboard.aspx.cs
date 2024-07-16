@@ -18,6 +18,18 @@ namespace FanHub.Admin
                 {
                     Response.Redirect("../User/Login.aspx");
                 }
+                else
+                {
+                    DashboardCount dashboard = new DashboardCount();
+                    Session["category"] = dashboard.Count("CATEGORY");
+                    Session["product"] = dashboard.Count("PRODUCT");
+                    Session["totalOrder"] = dashboard.Count("ORDER");
+                    Session["deliveredItems"] = dashboard.Count("DELIVERED");
+                    Session["pendingItems"] = dashboard.Count("PENDING");
+                    Session["users"] = dashboard.Count("USER");
+                    Session["soldAmount"] = dashboard.Count("SOLDAMOUNT");
+                    Session["feedback"] = dashboard.Count("CONTACT");
+                }
             }
         }
     }

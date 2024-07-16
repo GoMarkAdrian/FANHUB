@@ -103,7 +103,7 @@ namespace FanHub.User
 
             //Report Header
             BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntHead = new Font(bfntHead, 16, 1, Color.GRAY);
+            Font fntHead = new Font(bfntHead, 16, 1, Color.BLACK);
             Paragraph prgHeading = new Paragraph();
             prgHeading.Alignment = Element.ALIGN_CENTER;
             prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
@@ -112,9 +112,9 @@ namespace FanHub.User
             //Author
             Paragraph prgAuthor = new Paragraph();
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntAuthor = new Font(btnAuthor, 8, 2, Color.GRAY);
+            Font fntAuthor = new Font(btnAuthor, 8, 2, Color.BLACK);
             prgAuthor.Alignment = Element.ALIGN_RIGHT;
-            prgAuthor.Add(new Chunk("Order From : Fanhub", fntAuthor));
+            prgAuthor.Add(new Chunk("Order From : FANHUB", fntAuthor));
             prgAuthor.Add(new Chunk("\nOrder Date : " + dtblTable.Rows[0]["OrderDate"].ToString(), fntAuthor));
             document.Add(prgAuthor);
 
@@ -129,11 +129,11 @@ namespace FanHub.User
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count - 2);
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntColumnHeader = new Font(btnColumnHeader, 9, 1, Color.WHITE);
+            Font fntColumnHeader = new Font(btnColumnHeader, 9, 1, Color.BLACK);
             for (int i = 0; i < dtblTable.Columns.Count - 2; i++)
             {
                 PdfPCell cell = new PdfPCell();
-                cell.BackgroundColor = Color.GRAY;
+                cell.BackgroundColor = Color.YELLOW;
                 cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
             }
