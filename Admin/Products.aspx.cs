@@ -65,6 +65,7 @@ namespace FanHub.Admin
             string action = String.Empty, imagePath = string.Empty, fileExtenstion = string.Empty;
             bool isValidToExecute = false;
             int productID = Convert.ToInt32(hiddenID.Value);
+            int SOLD = 0;
             con = new SqlConnection(DBConnect.GetConnectionString());
             cmd = new SqlCommand("Products_CRUD", con);
             cmd.Parameters.AddWithValue("@Action", productID == 0 ? "INSERT" : "UPDATE");
@@ -75,6 +76,7 @@ namespace FanHub.Admin
             cmd.Parameters.AddWithValue("@Quantity", txtQuantity.Text.Trim());
             cmd.Parameters.AddWithValue("@CategoryID", ddlCategories.SelectedValue);
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
+            cmd.Parameters.AddWithValue("@SOLD", 0);
             if (fuProductImage.HasFile)
             {
                 if (util.IsValidExtension(fuProductImage.FileName))

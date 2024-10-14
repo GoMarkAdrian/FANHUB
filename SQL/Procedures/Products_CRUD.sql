@@ -1,9 +1,12 @@
+USE [FANHUB]
+GO
+/****** Object:  StoredProcedure [dbo].[Products_CRUD]    Script Date: 10/14/2024 8:26:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE Products_CRUD
+ALTER PROCEDURE [dbo].[Products_CRUD]
 	@Action VARCHAR(15),
 	@ProductID INT = NULL,
 	@Name VARCHAR(100) = NULL,
@@ -12,7 +15,8 @@ CREATE PROCEDURE Products_CRUD
 	@Quantity INT = NULL,
 	@ImageURL VARCHAR(MAX) = NULL,
 	@CategoryID INT = NULL,
-	@IsActive BIT = false
+	@IsActive BIT = false,
+	@SOLD INT = 0
 
 
 AS
@@ -36,7 +40,7 @@ BEGIN
 	-- INSERT
 	IF(@Action = 'INSERT')
 	BEGIN
-		INSERT INTO dbo.Products(Name, Description, Price, Quantity, ImageURL, CategoryID, IsActive, CreatedDate) VALUES (@Name, @Description, @Price, @Quantity, @ImageURL, @CategoryID, @IsActive, GETDATE())
+		INSERT INTO dbo.Products(Name, Description, Price, Quantity, ImageURL, CategoryID, IsActive, CreatedDate, SOLD) VALUES (@Name, @Description, @Price, @Quantity, @ImageURL, @CategoryID, @IsActive, GETDATE(), @SOLD)
 	END
 
 
@@ -75,4 +79,10 @@ BEGIN
 	BEGIN
 		SELECT * FROM dbo.Products WHERE ProductID = @ProductID
 	END
+	-- GET TOP 3 SALES
+	IF(@Action = 'TOP3')
+	BEGIN
+		SELECT TOP 3 * FROM dbo.Products ORDER BY SOLD DESC;
+	END
+
 END

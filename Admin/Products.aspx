@@ -132,6 +132,7 @@
                                                                         <th>Image</th>
                                                                         <th>IsActive</th>
                                                                         <th>CreatedDate</th>
+                                                                        <th>Sold</th>
                                                                         <th class="datatable-nosort">Action</th>
                                                                     </tr>
                                                                 </thead>
@@ -151,6 +152,7 @@
                                                                 <td>
                                                                     <asp:Label ID="lblIsActive" runat="server" Text='<%# Eval("IsActive") %>'></asp:Label></td>
                                                                 <td><%# Eval("CreatedDate") %></td>
+                                                                <td><%#Eval("SOLD")%></td>
                                                                 <td>
                                                                     <!-- EDIT LINK COMMAND -->
                                                                     <asp:LinkButton ID="ProductsEdit" Text="Edit" runat="server" CssClass="badge badge-primary" CommandArgument='<%# Eval("ProductID") %>' CommandName="Edit" CausesValidation="false">

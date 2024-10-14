@@ -26,12 +26,12 @@ namespace FanHub.User
             SqlDataAdapter adapter;
             DataTable dt;
 
-            if (txtUsername.Text.Trim() == "Admin")
+            if (txtUsername.Text.Trim() == "admin")
             {
                 con = new SqlConnection(DBConnect.GetConnectionString());
                 cmd = new SqlCommand("Users_CRUD", con);
                 cmd.Parameters.AddWithValue("@Action", "SELECT4LOGIN");
-                cmd.Parameters.AddWithValue("@Username", "Admin");
+                cmd.Parameters.AddWithValue("@Username", "admin");
                 cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
                 cmd.CommandType = CommandType.StoredProcedure;
                 adapter = new SqlDataAdapter(cmd);
